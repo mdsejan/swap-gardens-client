@@ -1,43 +1,39 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import Lottie from "lottie-react";
+import errorAnimation from "../../../public/lottie/error404.json";
 
 const Error = () => {
   return (
-    <div className="flex justify-center items-center w-full h-full border">
-      <div className="text-center py-10 px-4 sm:px-6 lg:px-8">
-        <h1 className=" text-9xl font-bold text-gray-800 sm:text-9xl dark:text-white">
-          404
-        </h1>
-        <h1 className=" text-2xl font-bold text-white" />
-        <p className="mt-3 text-gray-600 dark:text-gray-400">
-          Oops, something went wrong.
-        </p>
-        <p className="text-gray-600 dark:text-gray-400">
-          Sorry, we could not find your page.
-        </p>
-        <div className="mt-5">
-          <NavLink
-            to="/"
-            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-blue-500 hover:text-blue-700  transition-all text-sm py-3 px-4 dark:ring-offset-slate-900"
-          >
-            <svg
-              className="w-2.5 h-2.5"
-              width={16}
-              height={16}
-              viewBox="0 0 16 16"
-              fill="none"
+    <>
+      <Navbar></Navbar>
+      <section className="flex items-center min-h-[80vh] p-16 bg-gray-50 text-gray-800">
+        <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+          <div className="max-w-md text-center">
+            <h2 className="mb-8 font-extrabold text-9xl text-gray-400">
+              {/* <span className="sr-only">Error</span>404 */}
+              <Lottie animationData={errorAnimation} loop={true} />
+            </h2>
+            <p className="text-2xl font-semibold md:text-3xl">
+              {`Sorry, we couldn't find this page.`}
+            </p>
+            <p className="mt-4 mb-8 text-gray-600">
+              But dont worry, you can find plenty of other things on our
+              homepage.
+            </p>
+            <Link
+              rel="noopener noreferrer"
+              to="/"
+              className="px-8 py-3 font-semibold rounded bg-violet-600 text-gray-50"
             >
-              <path
-                d="M11.2792 1.64001L5.63273 7.28646C5.43747 7.48172 5.43747 7.79831 5.63273 7.99357L11.2792 13.64"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-              />
-            </svg>
-            Back to Home
-          </NavLink>
+              Back to homepage
+            </Link>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+      <Footer></Footer>
+    </>
   );
 };
 

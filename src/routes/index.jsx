@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayoutes from "../components/layout/MainLayoutes";
-import Home from "../pages/Home";
 import Services from "../pages/Services";
 import AddService from "../pages/AddService";
 import Error from "../components/layout/Error";
+import Home from "../pages/Home/Home";
 
 const routes = createBrowserRouter([
   {

@@ -21,10 +21,10 @@ const Navbar = () => {
 
       <li tabIndex={0}>
         <details className="font-semibold">
-          <summary>Dashboard.</summary>
+          <summary>Dashboard</summary>
           <ul className="p-1 w-36">
             <li>
-              <NavLink to="/err" className="mr-2">
+              <NavLink to="/my-services" className="mr-2">
                 My-services
               </NavLink>
             </li>
@@ -34,7 +34,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/err" className="mr-2">
+              <NavLink to="/my-schedules" className="mr-2">
                 My-schedules
               </NavLink>
             </li>
@@ -77,7 +77,7 @@ const Navbar = () => {
             </span>
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="dropdown dropdown-end">
