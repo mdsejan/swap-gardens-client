@@ -1,208 +1,144 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-900">
-      <div className="max-w-screen-2xl py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          <div className="col-span-full lg:col-span-1">
-            <a
-              className="flex-none text-xl font-semibold text-white"
-              href="#"
-              aria-label="Brand"
-            >
-              Brand
-            </a>
-          </div>
-          {/* End Col */}
-          <div className="col-span-1">
-            <h4 className="font-semibold text-gray-100">Product</h4>
-            <div className="mt-3 grid space-y-3">
-              <p>
-                <a
-                  className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                  href="#"
-                >
+    <footer className="divide-y bg-gray-100 text-gray-800">
+      <div className="max-w-screen-2xl px-4 flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+        <div className="lg:w-1/3">
+          <Link
+            to="/"
+            rel="noopener noreferrer"
+            className="flex justify-center space-x-3 lg:justify-start"
+          >
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-violet-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                fill="currentColor"
+                className="flex-shrink-0 w-5 h-5 rounded-full text-gray-50"
+              >
+                <path d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z"></path>
+              </svg>
+            </div>
+            <span className="self-center text-2xl font-semibold">
+              SwapGardens
+            </span>
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
+          <div className="space-y-3">
+            <h3 className="tracki uppercase text-gray-900">Product</h3>
+            <ul className="space-y-1">
+              <li>
+                <a rel="noopener noreferrer" href="#">
+                  Features
+                </a>
+              </li>
+              <li>
+                <a rel="noopener noreferrer" href="#">
+                  Integrations
+                </a>
+              </li>
+              <li>
+                <a rel="noopener noreferrer" href="#">
                   Pricing
                 </a>
-              </p>
-              <p>
-                <a
-                  className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                  href="#"
-                >
-                  Changelog
+              </li>
+              <li>
+                <a rel="noopener noreferrer" href="#">
+                  FAQ
                 </a>
-              </p>
-              <p>
-                <a
-                  className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                  href="#"
-                >
-                  Docs
+              </li>
+            </ul>
+          </div>
+          <div className="space-y-3">
+            <h3 className="tracki uppercase text-gray-900">Company</h3>
+            <ul className="space-y-1">
+              <li>
+                <a rel="noopener noreferrer" href="#">
+                  Privacy
                 </a>
-              </p>
+              </li>
+              <li>
+                <a rel="noopener noreferrer" href="#">
+                  Terms of Service
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="space-y-3">
+            <h3 className="uppercase text-gray-900">Developers</h3>
+            <ul className="space-y-1">
+              <li>
+                <a rel="noopener noreferrer" href="#">
+                  Public API
+                </a>
+              </li>
+              <li>
+                <a rel="noopener noreferrer" href="#">
+                  Documentation
+                </a>
+              </li>
+              <li>
+                <a rel="noopener noreferrer" href="#">
+                  Guides
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="space-y-3">
+            <div className="uppercase text-gray-900">Social media</div>
+            <div className="flex justify-start space-x-3">
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                title="Facebook"
+                className="flex items-center p-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 32 32"
+                  className="w-5 h-5 fill-current"
+                >
+                  <path d="M32 16c0-8.839-7.167-16-16-16-8.839 0-16 7.161-16 16 0 7.984 5.849 14.604 13.5 15.803v-11.177h-4.063v-4.625h4.063v-3.527c0-4.009 2.385-6.223 6.041-6.223 1.751 0 3.584 0.312 3.584 0.312v3.937h-2.021c-1.984 0-2.604 1.235-2.604 2.5v3h4.437l-0.713 4.625h-3.724v11.177c7.645-1.199 13.5-7.819 13.5-15.803z"></path>
+                </svg>
+              </a>
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                title="Twitter"
+                className="flex items-center p-1"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 fill-current"
+                >
+                  <path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"></path>
+                </svg>
+              </a>
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                title="Instagram"
+                className="flex items-center p-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  fill="currentColor"
+                  className="w-5 h-5 fill-current"
+                >
+                  <path d="M16 0c-4.349 0-4.891 0.021-6.593 0.093-1.709 0.084-2.865 0.349-3.885 0.745-1.052 0.412-1.948 0.959-2.833 1.849-0.891 0.885-1.443 1.781-1.849 2.833-0.396 1.020-0.661 2.176-0.745 3.885-0.077 1.703-0.093 2.244-0.093 6.593s0.021 4.891 0.093 6.593c0.084 1.704 0.349 2.865 0.745 3.885 0.412 1.052 0.959 1.948 1.849 2.833 0.885 0.891 1.781 1.443 2.833 1.849 1.020 0.391 2.181 0.661 3.885 0.745 1.703 0.077 2.244 0.093 6.593 0.093s4.891-0.021 6.593-0.093c1.704-0.084 2.865-0.355 3.885-0.745 1.052-0.412 1.948-0.959 2.833-1.849 0.891-0.885 1.443-1.776 1.849-2.833 0.391-1.020 0.661-2.181 0.745-3.885 0.077-1.703 0.093-2.244 0.093-6.593s-0.021-4.891-0.093-6.593c-0.084-1.704-0.355-2.871-0.745-3.885-0.412-1.052-0.959-1.948-1.849-2.833-0.885-0.891-1.776-1.443-2.833-1.849-1.020-0.396-2.181-0.661-3.885-0.745-1.703-0.077-2.244-0.093-6.593-0.093zM16 2.88c4.271 0 4.781 0.021 6.469 0.093 1.557 0.073 2.405 0.333 2.968 0.553 0.751 0.291 1.276 0.635 1.844 1.197 0.557 0.557 0.901 1.088 1.192 1.839 0.22 0.563 0.48 1.411 0.553 2.968 0.072 1.688 0.093 2.199 0.093 6.469s-0.021 4.781-0.099 6.469c-0.084 1.557-0.344 2.405-0.563 2.968-0.303 0.751-0.641 1.276-1.199 1.844-0.563 0.557-1.099 0.901-1.844 1.192-0.556 0.22-1.416 0.48-2.979 0.553-1.697 0.072-2.197 0.093-6.479 0.093s-4.781-0.021-6.48-0.099c-1.557-0.084-2.416-0.344-2.979-0.563-0.76-0.303-1.281-0.641-1.839-1.199-0.563-0.563-0.921-1.099-1.197-1.844-0.224-0.556-0.48-1.416-0.563-2.979-0.057-1.677-0.084-2.197-0.084-6.459 0-4.26 0.027-4.781 0.084-6.479 0.083-1.563 0.339-2.421 0.563-2.979 0.276-0.761 0.635-1.281 1.197-1.844 0.557-0.557 1.079-0.917 1.839-1.199 0.563-0.219 1.401-0.479 2.964-0.557 1.697-0.061 2.197-0.083 6.473-0.083zM16 7.787c-4.541 0-8.213 3.677-8.213 8.213 0 4.541 3.677 8.213 8.213 8.213 4.541 0 8.213-3.677 8.213-8.213 0-4.541-3.677-8.213-8.213-8.213zM16 21.333c-2.948 0-5.333-2.385-5.333-5.333s2.385-5.333 5.333-5.333c2.948 0 5.333 2.385 5.333 5.333s-2.385 5.333-5.333 5.333zM26.464 7.459c0 1.063-0.865 1.921-1.923 1.921-1.063 0-1.921-0.859-1.921-1.921 0-1.057 0.864-1.917 1.921-1.917s1.923 0.86 1.923 1.917z"></path>
+                </svg>
+              </a>
             </div>
           </div>
-          {/* End Col */}
-          <div className="col-span-1">
-            <h4 className="font-semibold text-gray-100">Company</h4>
-            <div className="mt-3 grid space-y-3">
-              <p>
-                <a
-                  className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                  href="#"
-                >
-                  About us
-                </a>
-              </p>
-              <p>
-                <a
-                  className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                  href="#"
-                >
-                  Blog
-                </a>
-              </p>
-              <p>
-                <a
-                  className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                  href="#"
-                >
-                  Careers
-                </a>
-                <span className="inline ml-1 text-xs bg-blue-700 text-white py-1 px-2 rounded-md">
-                  {`We're hiring`}
-                </span>
-              </p>
-              <p>
-                <a
-                  className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
-                  href="#"
-                >
-                  Customers
-                </a>
-              </p>
-            </div>
-          </div>
-          {/* End Col */}
-          <div className="col-span-2">
-            <h4 className="font-semibold text-gray-100">Stay up to date</h4>
-            <form>
-              <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 bg-white rounded-md p-2">
-                <div className="w-full">
-                  <label htmlFor="hero-input" className="sr-only">
-                    Search
-                  </label>
-                  <input
-                    type="text"
-                    id="hero-input"
-                    name="hero-input"
-                    className="py-3 px-4 block w-full border-transparent shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                    placeholder="Enter your email"
-                  />
-                </div>
-                <a
-                  className="w-full sm:w-auto whitespace-nowrap inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4"
-                  href="#"
-                >
-                  Subscribe
-                </a>
-              </div>
-              <p className="mt-3 text-sm text-gray-400">
-                New UI kits or big discounts. Never spam.
-              </p>
-            </form>
-          </div>
-          {/* End Col */}
         </div>
-        {/* End Grid */}
-        <div className="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
-          <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-400">
-              © 2022 Preline. All rights reserved.
-            </p>
-          </div>
-          {/* End Col */}
-          {/* Social Brands */}
-          <div>
-            <a
-              className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
-              href="#"
-            >
-              <svg
-                className="w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width={16}
-                height={16}
-                fill="currentColor"
-                viewBox="0 0 16 16"
-              >
-                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-              </svg>
-            </a>
-            <a
-              className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
-              href="#"
-            >
-              <svg
-                className="w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width={16}
-                height={16}
-                fill="currentColor"
-                viewBox="0 0 16 16"
-              >
-                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-              </svg>
-            </a>
-            <a
-              className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
-              href="#"
-            >
-              <svg
-                className="w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width={16}
-                height={16}
-                fill="currentColor"
-                viewBox="0 0 16 16"
-              >
-                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-              </svg>
-            </a>
-            <a
-              className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
-              href="#"
-            >
-              <svg
-                className="w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width={16}
-                height={16}
-                fill="currentColor"
-                viewBox="0 0 16 16"
-              >
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-              </svg>
-            </a>
-            <a
-              className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
-              href="#"
-            >
-              <svg
-                className="w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width={16}
-                height={16}
-                fill="currentColor"
-                viewBox="0 0 16 16"
-              >
-                <path d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z" />
-              </svg>
-            </a>
-          </div>
-          {/* End Social Brands */}
-        </div>
+      </div>
+      <div className="py-6 text-sm text-center text-gray-600">
+        © 1968 Company Co. All rights reserved.
       </div>
     </footer>
   );
