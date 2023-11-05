@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { ThemeContext } from "../../providers/ThemeProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(ThemeContext);
+
+  const handleLogOut = () => {
+    logOut().then();
+  };
+
   const navLinks = (
     <>
       <li>
@@ -13,44 +21,46 @@ const Navbar = () => {
           Services
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/err" className="mr-2">
-          logout
-        </NavLink>
-      </li>
-
-      <li tabIndex={0}>
-        <details className="font-semibold">
-          <summary>Dashboard</summary>
-          <ul className="p-1 w-36">
-            <li>
-              <NavLink to="/my-services" className="mr-2">
-                My-services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/add-service" className="mr-2">
-                Add-services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/my-schedules" className="mr-2">
-                My-schedules
-              </NavLink>
-            </li>
-          </ul>
-        </details>
-      </li>
-
-      {/* {!user ? (
+      {!user ? (
         <li>
           <NavLink to="/login" className="mr-2">
             Login
           </NavLink>
         </li>
       ) : (
-        " "
-      )} */}
+        <>
+          <li>
+            <button
+              onClick={handleLogOut}
+              className="hover:bg-transparent font-semibold"
+            >
+              Logout
+            </button>
+          </li>
+          <li tabIndex={0}>
+            <details className="font-semibold">
+              <summary>Dashboard</summary>
+              <ul className="p-1 w-36">
+                <li>
+                  <NavLink to="/my-services" className="mr-2">
+                    My-services
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/add-service" className="mr-2">
+                    Add-services
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/my-schedules" className="mr-2">
+                    My-schedules
+                  </NavLink>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </>
+      )}
     </>
   );
   return (

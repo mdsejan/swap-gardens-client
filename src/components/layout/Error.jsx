@@ -8,7 +8,7 @@ const Error = () => {
   return (
     <>
       <Navbar></Navbar>
-      <section className="flex items-center min-h-[80vh] p-16 bg-gray-50 text-gray-800">
+      <section className="flex items-center min-h-[80vh] md:p-16 bg-gray-50 text-gray-800">
         <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
           <div className="max-w-md text-center">
             <h2 className="mb-8 font-extrabold text-9xl text-gray-400">
@@ -23,9 +23,8 @@ const Error = () => {
               homepage.
             </p>
             <Link
-              rel="noopener noreferrer"
               to="/"
-              className="px-8 py-3 font-semibold rounded bg-violet-600 text-gray-50"
+              className="px-3 lg:px-8 py-3 w-full font-semibold rounded bg-violet-600 text-gray-50"
             >
               Back to homepage
             </Link>
