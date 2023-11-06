@@ -18,8 +18,8 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/services" className="mr-2">
-          Services
+        <NavLink to="/all-swaps" className="mr-2">
+          All Swaps
         </NavLink>
       </li>
       {!user ? (
@@ -33,7 +33,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={handleLogOut}
-              className="hover:bg-transparent font-semibold"
+              className="hover:bg-transparent text-red-600 hover:text-red-800 font-bold"
             >
               Logout
             </button>
@@ -43,18 +43,18 @@ const Navbar = () => {
               <summary>Dashboard</summary>
               <ul className="p-1 w-36">
                 <li>
-                  <NavLink to="/my-services" className="mr-2">
-                    My-services
+                  <NavLink to="/add-swap" className="mr-2">
+                    Add Swap
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/add-service" className="mr-2">
-                    Add-services
+                  <NavLink to="/my-swaps" className="mr-2">
+                    My Swaps
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/my-schedules" className="mr-2">
-                    My-schedules
+                  <NavLink to="/my-schedule" className="mr-2">
+                    My Schedules
                   </NavLink>
                 </li>
               </ul>

@@ -1,12 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayoutes from "../components/layout/MainLayoutes";
-import Services from "../pages/Services";
-import AddService from "../pages/AddService";
 import Error from "../components/layout/Error";
 import Home from "../pages/Home/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import PrivateRoute from "./PrivateRoute";
+import AllSwaps from "../pages/AllSwaps/AllSwaps";
+import SwapDetails from "../pages/SwapDetails/SwapDetails";
+import MySchedule from "../pages/MySchedule/MySchedule";
+import AddSwap from "../pages/AddSwap/AddSwap";
+import MySwaps from "../pages/MySwaps/MySwaps";
 
 const routes = createBrowserRouter([
   {
@@ -19,16 +22,40 @@ const routes = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "services",
+        path: "all-swaps",
+        element: <AllSwaps></AllSwaps>,
+      },
+      {
+        path: "swap/:id",
         element: (
           <PrivateRoute>
-            <Services></Services>
+            <SwapDetails></SwapDetails>
           </PrivateRoute>
         ),
       },
       {
-        path: "add-service",
-        element: <AddService></AddService>,
+        path: "add-swap",
+        element: (
+          <PrivateRoute>
+            <AddSwap></AddSwap>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-swaps",
+        element: (
+          <PrivateRoute>
+            <MySwaps></MySwaps>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-schedule",
+        element: (
+          <PrivateRoute>
+            <MySchedule></MySchedule>
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",
