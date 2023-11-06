@@ -24,7 +24,7 @@ const AddSwap = () => {
       description,
     };
 
-    fetch("http://localhost:5000/api/v1/user/add-swap", {
+    fetch("https://swap-gardens-server.vercel.app/api/v1/user/add-swap", {
       method: "POST",
       headers: {
         "content-type": "application/json",
