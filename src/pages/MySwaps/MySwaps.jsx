@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../providers/ThemeProvider";
+import MySwapCard from "./MySwapCard";
 
 const MySwaps = () => {
   const [mySwaps, setMySwaps] = useState([]);
@@ -13,16 +14,14 @@ const MySwaps = () => {
       .then((data) => setMySwaps(data));
   }, [user.email]);
 
-  console.log(mySwaps);
-
   return (
-    <div className="min-h-[80vh] max-w-screen-2xl mx-auto px-4 py-12">
+    <div className=" md:min-h-[60vh] xl:min-h-[80vh] max-w-screen-2xl mx-auto px-4 py-12">
       {mySwaps.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="table border rounded">
+          <table className="table border border-[#7CAD3A] rounded">
             {/* head */}
             <thead>
-              <tr className="md:text-lg bg-[#FDF9EF] text-black font-semibold">
+              <tr className="md:text-lg bg-[#7CAD3A] text-white font-semibold">
                 <th>Image</th>
                 <th>Name</th>
                 <th>Price</th>
@@ -30,14 +29,14 @@ const MySwaps = () => {
               </tr>
             </thead>
             <tbody>
-              {/* {cartProducts?.map((product) => (
-                <CartCard
-                  key={product._id}
-                  product={product}
-                  setCartProducts={setCartProducts}
-                  cartProducts={cartProducts}
-                ></CartCard>
-              ))} */}
+              {mySwaps?.map((swap) => (
+                <MySwapCard
+                  key={swap._id}
+                  swap={swap}
+                  setMySwaps={setMySwaps}
+                  mySwaps={mySwaps}
+                ></MySwapCard>
+              ))}
             </tbody>
           </table>
         </div>
