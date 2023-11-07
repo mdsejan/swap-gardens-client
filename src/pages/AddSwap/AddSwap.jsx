@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../providers/ThemeProvider";
+import toast from "react-hot-toast";
 
 const AddSwap = () => {
   const { user } = useContext(ThemeContext);
@@ -34,13 +35,7 @@ const AddSwap = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          // Swal.fire({
-          //   position: "center",
-          //   icon: "success",
-          //   title: "Product Added Successfully",
-          //   showConfirmButton: false,
-          //   timer: 2500,
-          // });
+          toast.success("Swap Added Successfully");
         }
         e.target.reset();
       });

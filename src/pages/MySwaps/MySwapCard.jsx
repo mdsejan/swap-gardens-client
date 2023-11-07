@@ -1,8 +1,41 @@
 import PropTypes from "prop-types";
+import toast from "react-hot-toast";
 import { FaTrash, FaPencil } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
-const MySwapCard = ({ swap }) => {
-  const { name, image, price } = swap || {};
+const MySwapCard = ({ swap, mySwaps, setMySwaps }) => {
+  const { _id, name, image, price } = swap || {};
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `https://swap-gardens-server.vercel.app/api/v1/user/delete-swap/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              toast.success("Swap has been deleted");
+
+              const remaining = mySwaps.filter((swaps) => swaps._id !== id);
+
+              setMySwaps(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <>
       <tr>
@@ -25,7 +58,7 @@ const MySwapCard = ({ swap }) => {
             <FaPencil></FaPencil>
           </button>
           <button
-            // onClick={() => handleDelete(_id)}
+            onClick={() => handleDelete(_id)}
             className="p-3 rounded bg-red-600 hover:bg-red-700 text-white border "
           >
             <FaTrash></FaTrash>
@@ -38,6 +71,8 @@ const MySwapCard = ({ swap }) => {
 
 MySwapCard.propTypes = {
   swap: PropTypes.object,
+  mySwaps: PropTypes.object,
+  setMySwaps: PropTypes.object,
 };
 
 export default MySwapCard;
