@@ -52,7 +52,7 @@ const AddSwap = () => {
         <form onSubmit={handleSubmit}>
           <div className="flex flex-wrap -mx-4 max-w-screen-lg border md:p-12">
             <div className="w-full mt-12 md:mt-0 mb-16 text-center">
-              <h1 className="text-4xl text-[#7CAD3A] font-semibold mt-3">
+              <h1 className="text-4xl text-[#7CAD3A] underline font-semibold mt-3">
                 Add New Swap
               </h1>
             </div>

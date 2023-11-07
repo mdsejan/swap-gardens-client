@@ -6,7 +6,11 @@ export default {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'ibm-plex-sans': ['IBM Plex Sans', 'sans'],
+      },
+    },
   },
   plugins: [require("daisyui")],
 }

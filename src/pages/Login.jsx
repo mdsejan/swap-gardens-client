@@ -2,71 +2,44 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { ThemeContext } from "../providers/ThemeProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const { googleSignIn, signInUser, loading, setLoading } =
-    useContext(ThemeContext);
+  const { googleSignIn, signInUser } = useContext(ThemeContext);
 
   const location = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();
+
+    const toastId = toast.loading("Logging in ...");
+
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     signInUser(email, password)
       .then(() => {
-        setLoading(false);
-        // Swal.fire({
-        //   position: "center",
-        //   icon: "success",
-        //   title: "Sign-in Successful! Welcome back!",
-        //   showConfirmButton: false,
-        //   timer: 2500,
-        // });
+        toast.success("Logged in", { id: toastId });
 
         e.target.reset();
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        setLoading(false);
-        console.log(error);
-        // Swal.fire({
-        //   position: "center",
-        //   icon: "error",
-        //   title: error.message,
-        //   showConfirmButton: false,
-        //   timer: 2500,
-        // });
+        toast.error(error.message, { id: toastId });
       });
   };
 
   const handleGoogleLogin = () => {
     googleSignIn()
       .then(() => {
-        setLoading(false);
-        // Swal.fire({
-        //   position: "center",
-        //   icon: "success",
-        //   title: "Sign-in Successful! Welcome back!",
-        //   showConfirmButton: false,
-        //   timer: 2500,
-        // });
+        toast.success("Logged in");
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        setLoading(false);
-        console.log(error);
-        // Swal.fire({
-        //   position: "center",
-        //   icon: "error",
-        //   title: error.message,
-        //   showConfirmButton: false,
-        //   timer: 2500,
-        // });
+        toast.error(error.message);
       });
   };
 
@@ -162,11 +135,11 @@ const Login = () => {
                   className="flex items-center justify-center w-full text-white py-2 px-4 rounded-lg bg-[#ACD27A] hover:bg-[#ACD27A] focus:outline-none"
                 >
                   Login
-                  {loading ? (
+                  {/* {loading ? (
                     <span className="loading loading-spinner loading-sm ml-3"></span>
                   ) : (
                     ""
-                  )}
+                  )} */}
                 </button>
               </div>
             </form>

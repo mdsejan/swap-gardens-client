@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { updateProfile } from "firebase/auth";
 import auth from "../config/Firebase.config";
 import { ThemeContext } from "../providers/ThemeProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,11 +12,14 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const { createUser, loading, logOut, setLoading, googleSignIn } =
+  const { createUser, loading, logOut, googleSignIn } =
     useContext(ThemeContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
+
+    const toastId = toast.loading("Loading...");
+
     const fullName = e.target.fullName.value;
     const imgLink = e.target.imgLink.value;
     const email = e.target.email.value;
@@ -50,28 +54,14 @@ const Register = () => {
 
         logOut().then();
 
-        // Swal.fire({
-        //   position: "center",
-        //   icon: "success",
-        //   title: "Success! Your registration is complete. Please Login.",
-        //   showConfirmButton: false,
-        //   timer: 2500,
-        // });
+        toast.success("Registration Successful", { id: toastId });
 
         e.target.reset();
 
         navigate("/login");
       })
       .catch((error) => {
-        console.log(error);
-        setLoading(false);
-        // Swal.fire({
-        //   position: "center",
-        //   icon: "error",
-        //   title: error.message,
-        //   showConfirmButton: false,
-        //   timer: 2500,
-        // });
+        toast.error(error.message);
       });
   };
 
