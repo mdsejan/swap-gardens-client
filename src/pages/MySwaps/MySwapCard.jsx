@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import toast from "react-hot-toast";
 import { FaTrash, FaPencil } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MySwapCard = ({ swap, mySwaps, setMySwaps }) => {
@@ -51,12 +52,11 @@ const MySwapCard = ({ swap, mySwaps, setMySwaps }) => {
         <td className="md:text-lg">{name}</td>
         <td className="md:text-lg font-semibold">${price}</td>
         <th>
-          <button
-            // onClick={() => handleDelete(_id)}
-            className="p-3 rounded bg-orange-400 hover:bg-orange-500 text-white border mr-6 "
-          >
-            <FaPencil></FaPencil>
-          </button>
+          <Link to={`/update-swap/${_id}`}>
+            <button className="p-3 rounded bg-orange-400 hover:bg-orange-500 text-white border mr-6 ">
+              <FaPencil></FaPencil>
+            </button>
+          </Link>
           <button
             onClick={() => handleDelete(_id)}
             className="p-3 rounded bg-red-600 hover:bg-red-700 text-white border "

@@ -135,11 +135,6 @@ const Login = () => {
                   className="flex items-center justify-center w-full text-white py-2 px-4 rounded-lg bg-[#ACD27A] hover:bg-[#ACD27A] focus:outline-none"
                 >
                   Login
-                  {/* {loading ? (
-                    <span className="loading loading-spinner loading-sm ml-3"></span>
-                  ) : (
-                    ""
-                  )} */}
                 </button>
               </div>
             </form>

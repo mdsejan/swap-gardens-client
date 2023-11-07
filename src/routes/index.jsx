@@ -10,6 +10,7 @@ import SwapDetails from "../pages/SwapDetails/SwapDetails";
 import MySchedule from "../pages/MySchedule/MySchedule";
 import AddSwap from "../pages/AddSwap/AddSwap";
 import MySwaps from "../pages/MySwaps/MySwaps";
+import UpdateMySwap from "../pages/MySwaps/UpdateMySwap";
 
 const routes = createBrowserRouter([
   {
@@ -46,6 +47,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MySwaps></MySwaps>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "update-swap/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateMySwap></UpdateMySwap>
           </PrivateRoute>
         ),
       },
