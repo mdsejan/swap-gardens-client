@@ -10,7 +10,7 @@ const UpdateMySwap = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/swaps?swap=${id}`)
+    fetch(`https://swap-gardens-server.vercel.app/api/v1/swaps?swap=${id}`)
       .then((res) => res.json())
       .then((data) => setswapInfo(data));
   }, [id]);
@@ -36,19 +36,21 @@ const UpdateMySwap = () => {
       description,
     };
 
-    fetch("https://swap-gardens-server.vercel.app/api/v1/user/add-swap", {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(swapDetails),
-    })
+    fetch(
+      `https://swap-gardens-server.vercel.app/api/v1/user/update-swap/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(swapDetails),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("Swap Updated Successfully");
         }
-        e.target.reset();
       });
   };
   return (
