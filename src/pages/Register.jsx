@@ -94,7 +94,7 @@ const Register = () => {
     <div className="lg:min-h-screen px-5 py-12 lg:py-0 flex items-center justify-center ">
       <div className="flex bg-white dark-bg-yellow  rounded-lg shadow-sm border w-full max-w-5xl">
         {/* Left Column for Image */}
-        <div className="w-1/2 bg-[#7B44E8] p-12 hidden md:block">
+        <div className="w-1/2 bg-[#ACD27A] p-12 hidden md:block">
           <h1 className="text-3xl font-semibold text-center mb-1 text-white ">
             Register Now
           </h1>
@@ -115,7 +115,7 @@ const Register = () => {
             <div className="text-center">
               <button
                 onClick={handleGoogleLogin}
-                className="btn btn-outline w-full mt-4 capitalize font-bold text-[#7B44E8] hover:bg-[#7B44E8] "
+                className="btn btn-outline w-full mt-4 capitalize font-bold text-[#ACD27A] hover:bg-[#ACD27A] "
               >
                 <img
                   className="w-4"
@@ -206,7 +206,7 @@ const Register = () => {
               <div className="mb-4">
                 <button
                   type="submit"
-                  className=" flex items-center justify-center w-full text-white py-2 px-4 rounded-lg bg-[#7B44E8] hover:bg-[#7B44E8] focus:outline-none"
+                  className=" flex items-center justify-center w-full text-white py-2 px-4 rounded-lg bg-[#ACD27A] hover:bg-[#ACD27A] focus:outline-none"
                 >
                   Register
                   {loading ? (
@@ -225,7 +225,7 @@ const Register = () => {
             <div>
               <p className="mt-8 text-md">
                 Alredy have an Account?
-                <Link to="/login" className="text-[#7B44E8] font-bold ml-2">
+                <Link to="/login" className="text-[#ACD27A] font-bold ml-2">
                   Login
                 </Link>
               </p>

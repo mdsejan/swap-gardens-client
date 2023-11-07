@@ -12,6 +12,6 @@ a {
 
 a.active {
   background-color: rgba(0, 0, 0, 0) !important;
-  color: blue !important;
+  color: #acd27a !important;
   font-weight: 700;
 }

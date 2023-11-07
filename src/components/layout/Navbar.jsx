@@ -33,7 +33,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={handleLogOut}
-              className="hover:bg-transparent text-red-600 hover:text-red-800 font-bold"
+              className="hover:bg-transparent text-[#7CAD3A] hover:text-[#557627] font-bold"
             >
               Logout
             </button>
@@ -73,7 +73,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="flex justify-center lg:justify-start"
           >
-            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-violet-600">
+            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-[#ACD27A]">
               <RiPlantFill className="text-white text-2xl"></RiPlantFill>
             </div>
             <span className="self-center text-2xl font-semibold ml-2">

@@ -77,15 +77,20 @@ const Login = () => {
     <div className="lg:min-h-screen px-5 py-12 lg:py-0 flex items-center justify-center ">
       <div className="flex bg-white dark-bg-yellow  rounded-lg shadow-sm border w-full max-w-4xl">
         {/* Left Column for Image */}
-        <div className="w-1/2 bg-[#7B44E8] p-12 hidden md:block">
+        <div
+          className="w-1/2 bg-[#ACD27A] p-12 hidden md:block bg-no-repeat bg-bottom bg-cover "
+          style={{
+            backgroundImage: "url('https://i.ibb.co/3vzKPQz/1-1-370x500.webp')",
+          }}
+        >
           <h1 className="text-3xl font-semibold text-center mb-1 text-white ">
             Welcome Back
           </h1>
-          <img
+          {/* <img
             src="https://i.ibb.co/HKVWrZP/login.png"
             alt="Login Image"
             className="w-full h-full object-cover"
-          />
+          /> */}
         </div>
 
         {/* Right Column for Login Form */}
@@ -95,7 +100,7 @@ const Login = () => {
             <div className="text-center">
               <button
                 onClick={handleGoogleLogin}
-                className="btn btn-outline w-full mt-4 capitalize font-bold text-[#7B44E8] hover:bg-[#7B44E8]"
+                className="btn btn-outline w-full mt-4 capitalize font-bold text-[#ACD27A] hover:bg-[#ACD27A]"
               >
                 <img
                   className="w-4"
@@ -154,7 +159,7 @@ const Login = () => {
               <div className="mb-4">
                 <button
                   type="submit"
-                  className="flex items-center justify-center w-full text-white py-2 px-4 rounded-lg bg-[#7B44E8] hover:bg-[#7B44E8] focus:outline-none"
+                  className="flex items-center justify-center w-full text-white py-2 px-4 rounded-lg bg-[#ACD27A] hover:bg-[#ACD27A] focus:outline-none"
                 >
                   Login
                   {loading ? (
@@ -168,7 +173,7 @@ const Login = () => {
             <div>
               <p className="mt-8 text-md">
                 New to this website? Please &nbsp;
-                <Link to="/register" className="text-[#7B44E8] font-bold">
+                <Link to="/register" className="text-[#ACD27A] font-bold">
                   Register
                 </Link>
               </p>

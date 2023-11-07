@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="divide-y bg-gray-100 text-gray-800">
+    <footer className="divide-y bg-[#D9E9D7] text-black">
       <div className="max-w-screen-2xl px-4 flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3 my-8 lg:my-0">
           <Link
@@ -12,7 +12,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="flex justify-start md:justify-center space-x-3 lg:justify-start"
           >
-            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-violet-600">
+            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-[#ACD27A]">
               <RiPlantFill className="text-white text-2xl"></RiPlantFill>
             </div>
             <span className="self-center text-2xl font-semibold">
@@ -111,7 +111,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-6 text-sm text-center text-gray-600">
+      <div className="py-6 text-sm text-center border-t border-gray-400 text-gray-600">
         © 2023 SwapGardens. All rights reserved.
       </div>
     </footer>

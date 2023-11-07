@@ -51,8 +51,10 @@ const AddSwap = () => {
       <div className="flex flex-col justify-center items-center lg:min-h-screen mx-3 md:mx-8">
         <form onSubmit={handleSubmit}>
           <div className="flex flex-wrap -mx-4 max-w-screen-lg border md:p-12">
-            <div className="w-full mt-12 md:mt-0 mb-16  text-center">
-              <h1 className="text-4xl font-semibold mt-3">Add New Swap</h1>
+            <div className="w-full mt-12 md:mt-0 mb-16 text-center">
+              <h1 className="text-4xl text-[#7CAD3A] font-semibold mt-3">
+                Add New Swap
+              </h1>
             </div>
             <div className="w-full md:w-1/2 px-4">
               <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
@@ -145,7 +147,7 @@ const AddSwap = () => {
             </div>
             <div className="flex justify-center w-full px-4 mt-12 mb-12 md:mb-0">
               <button
-                className="bg-[#7B44E8] hover:bg-[#7B44E8] text-white font-light w-2/3 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-[#ACD27A] hover:bg-[#7CAD3A] text-white font-bold w-2/3 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 Add Swap
