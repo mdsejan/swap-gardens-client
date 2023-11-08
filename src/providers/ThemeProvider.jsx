@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import auth from "../config/Firebase.config";
+import axios from "axios";
 
 const GoogleProvider = new GoogleAuthProvider();
 
@@ -40,15 +41,28 @@ const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
+
       setUser(currentUser);
       setLoading(false);
       console.log("Observed User:", currentUser);
+
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/api/v1/auth/access-token", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("token res", res.data);
+          });
+      }
     });
 
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [user]);
 
   const themeInfo = {
     googleSignIn,
