@@ -49,11 +49,11 @@ const MySwapCard = ({ swap, mySwaps, setMySwaps }) => {
             />
           </div>
         </td>
-        <td className="md:text-lg">{name}</td>
-        <td className="md:text-lg font-semibold">${price}</td>
+        <td className="md:text-lg text-[#557627]">{name}</td>
+        <td className="md:text-lg text-[#557627] font-semibold">${price}</td>
         <th>
           <Link to={`/update-swap/${_id}`}>
-            <button className="p-3 rounded bg-orange-400 hover:bg-orange-500 text-white border mr-6 ">
+            <button className="p-3 rounded bg-[#557627] hover:bg-[#70993E] text-white border mr-6 ">
               <FaPencil></FaPencil>
             </button>
           </Link>

@@ -55,6 +55,9 @@ const ThemeProvider = ({ children }) => {
           })
           .then((res) => {
             console.log("token res", res.data);
+            if (res.data.success) {
+              console.log(res.data.success);
+            }
           });
       }
     });

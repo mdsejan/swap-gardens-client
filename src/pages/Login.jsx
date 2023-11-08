@@ -36,6 +36,7 @@ const Login = () => {
     googleSignIn()
       .then(() => {
         toast.success("Logged in");
+
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {

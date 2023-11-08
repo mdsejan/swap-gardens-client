@@ -7,21 +7,19 @@ const MySwaps = () => {
   const { user } = useContext(ThemeContext);
 
   useEffect(() => {
-    fetch(
-      `https://swap-gardens-server.vercel.app/api/v1/swaps?user=${user.email}`
-    )
+    fetch(`http://localhost:5000/api/v1/myswaps/?user=${user.email}`)
       .then((res) => res.json())
       .then((data) => setMySwaps(data));
   }, [user.email]);
 
   return (
     <div className=" md:min-h-[60vh] xl:min-h-[80vh] max-w-screen-2xl mx-auto px-4 py-12">
-      {mySwaps.length > 0 ? (
+      {mySwaps?.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="table border border-[#7CAD3A] rounded">
+          <table className="table border border-[#F3F9EC] rounded">
             {/* head */}
             <thead>
-              <tr className="md:text-lg bg-[#7CAD3A] text-white font-semibold">
+              <tr className="md:text-lg bg-[#F3F9EC] text-[#6c9935] font-semibold">
                 <th>Image</th>
                 <th>Name</th>
                 <th>Price</th>
