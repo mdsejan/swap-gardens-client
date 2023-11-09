@@ -19,10 +19,14 @@ const MyBookings = () => {
     <div>
       <h2 className="text-2xl md:text-4xl font-medium mt-2">My Bookings</h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
-        {myBookings?.map((booking) => (
-          <BookingsCard key={booking._id} booking={booking}></BookingsCard>
-        ))}
+      <div className=" min-h-[10vh] grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+        {myBookings?.length !== 0 ? (
+          myBookings?.map((booking) => (
+            <BookingsCard key={booking._id} booking={booking}></BookingsCard>
+          ))
+        ) : (
+          <h1>No Bookings Available</h1>
+        )}
       </div>
     </div>
   );
