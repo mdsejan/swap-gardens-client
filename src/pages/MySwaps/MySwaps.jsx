@@ -7,9 +7,15 @@ const MySwaps = () => {
   const { user } = useContext(ThemeContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/myswaps/?user=${user.email}`)
+    fetch(`http://localhost:5000/api/v1/myswaps/?user=${user.email}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
-      .then((data) => setMySwaps(data));
+      .then((data) => setMySwaps(data))
+      .catch((error) => {
+        console.error("Error fetching my swaps:", error);
+        // Handle error as needed
+      });
   }, [user.email]);
 
   return (

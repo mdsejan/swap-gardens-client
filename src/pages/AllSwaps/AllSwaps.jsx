@@ -6,7 +6,7 @@ const AllSwaps = () => {
   const [search, setSearch] = useState("");
   const [isShow, setIsShow] = useState(false);
 
-  console.log(swaps);
+  // console.log(swaps);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +15,9 @@ const AllSwaps = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/swaps/?search=${search}`)
+    fetch(
+      `https://swap-gardens-server.vercel.app/api/v1/swaps/?search=${search}`
+    )
       .then((res) => res.json())
       .then((data) => setSwaps(data));
   }, [search]);
@@ -51,10 +53,12 @@ const AllSwaps = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-20">
         {isShow
-          ? swaps?.map((swap) => <SwapCard key={swap._id}></SwapCard>)
+          ? swaps?.map((swap) => (
+              <SwapCard key={swap._id} swap={swap}></SwapCard>
+            ))
           : swaps
               ?.slice(0, 8)
-              .map((swap) => <SwapCard key={swap._id}></SwapCard>)}
+              .map((swap) => <SwapCard key={swap._id} swap={swap}></SwapCard>)}
       </div>
       <div className="text-center py-12">
         {swaps.length > 8 && (

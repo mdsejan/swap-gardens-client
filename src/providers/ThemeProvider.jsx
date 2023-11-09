@@ -50,9 +50,13 @@ const ThemeProvider = ({ children }) => {
 
       if (currentUser) {
         axios
-          .post("http://localhost:5000/api/v1/auth/access-token", loggedUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://swap-gardens-server.vercel.app/api/v1/auth/access-token",
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log("token res", res.data);
             if (res.data.success) {

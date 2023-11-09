@@ -71,7 +71,7 @@ const MySwapCard = ({ swap, mySwaps, setMySwaps }) => {
 
 MySwapCard.propTypes = {
   swap: PropTypes.object,
-  mySwaps: PropTypes.object,
+  mySwaps: PropTypes.array,
   setMySwaps: PropTypes.object,
 };
 
