@@ -10,14 +10,7 @@ const Hero = () => {
           Cupiditate minima voluptate temporibus quia? Architecto beatae esse ab
           amet vero eaque explicabo!
         </p>
-        <div className="flex flex-wrap justify-center">
-          <button className="px-8 py-3 m-2 text-lg font-semibold rounded bg-[#ACD27A] text-gray-50">
-            Get started
-          </button>
-          <button className="px-8 py-3 m-2 text-lg border rounded text-gray-900 border-gray-300">
-            Learn more
-          </button>
-        </div>
+        <div className="flex flex-wrap justify-center"></div>
       </div>
     </section>
   );

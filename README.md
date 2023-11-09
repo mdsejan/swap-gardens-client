@@ -7,10 +7,9 @@ Welcome to SwapGardens, a web application that allows plant enthusiasts to conne
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [Technologies Used](#technologies-used)
-4. [Getting Started](#getting-started)
-5. [Usage](#usage)
-6. [Live Site](#live-site)
-7. [Server-side Repository](#server-side-repository)
+4. [Usage](#usage)
+5. [Live Site](#live-site)
+6. [Server-side Repository](#server-side-repository)
 
 ## Introduction
 
