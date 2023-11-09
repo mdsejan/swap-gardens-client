@@ -80,8 +80,6 @@ const SwapDetails = () => {
       bookingStatus,
     };
 
-    console.log(bookingDetails);
-
     fetch("https://swap-gardens-server.vercel.app/api/v1/user/booking", {
       method: "POST",
       headers: {
