@@ -53,7 +53,7 @@ const SwapDetails = () => {
     const userEmail = e.target.userEmail.value;
     const price = e.target.price.value;
     const bookingDate = selectedDate;
-    const note = e.target.note.value;
+    const bookingNote = e.target.bookingNote.value;
     const bookingStatus = "pending";
 
     const swapDetails = {
@@ -63,7 +63,7 @@ const SwapDetails = () => {
       userEmail,
       price,
       bookingDate,
-      note,
+      bookingNote,
       bookingStatus,
     };
 
@@ -243,7 +243,8 @@ const SwapDetails = () => {
 
                     <textarea
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      name="note"
+                      name="bookingNote"
+                      maxLength={200}
                       rows="4"
                       placeholder="note about the booking"
                       required
