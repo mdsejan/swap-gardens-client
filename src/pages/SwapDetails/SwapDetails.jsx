@@ -10,10 +10,19 @@ import "react-datepicker/dist/react-datepicker.css";
 const SwapDetails = () => {
   const [showModal, setShowModal] = useState(false);
   const [swaps, setSwaps] = useState([]);
+  const [swapInfo, setSwapInfo] = useState([]);
   const { user } = useContext(ThemeContext);
   const [selectedDate, setSelectedDate] = useState(null);
 
+  const { name, userEmail, image, price } = swapInfo[0] || [];
+
   const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`https://swap-gardens-server.vercel.app/api/v1/swaps/?swap=${id}`)
+      .then((res) => res.json())
+      .then((data) => setSwapInfo(data));
+  }, [id]);
 
   useEffect(() => {
     fetch(`https://swap-gardens-server.vercel.app/api/v1/swaps/`)
@@ -40,7 +49,7 @@ const SwapDetails = () => {
 
     const name = e.target.name.value;
     const image = e.target.image.value;
-    const userName = e.target.userName.value;
+    const providerEmail = e.target.provideremail.value;
     const userEmail = e.target.userEmail.value;
     const price = e.target.price.value;
     const bookingDate = selectedDate;
@@ -50,7 +59,7 @@ const SwapDetails = () => {
     const swapDetails = {
       name,
       image,
-      userName,
+      providerEmail,
       userEmail,
       price,
       bookingDate,
@@ -93,8 +102,8 @@ const SwapDetails = () => {
         {/* Right Column - Swap Details */}
         <div className="lg:w-1/2 lg:pl-4">
           <div className="p-4">
-            <h2 className="text-2xl font-bold mb-2">Rare Orchid Swap</h2>
-            <p className="text-2xl text-[#6c9935] mb-2">$10.00</p>
+            <h2 className="text-2xl font-bold mb-2"> {name} </h2>
+            <p className="text-2xl text-[#6c9935] mb-2">${price}.00</p>
             <p className="text-gray-600 mb-4 mt-8">
               The flower of the orchid plant is colorful, fragrant and can vary
               in sizes from microscopic plants (Platystele) to long vines
@@ -157,6 +166,7 @@ const SwapDetails = () => {
                       name="name"
                       type="text"
                       placeholder="Name"
+                      defaultValue={name}
                       disabled
                     />
                   </div>
@@ -169,20 +179,20 @@ const SwapDetails = () => {
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       name="image"
                       type="text"
-                      placeholder="Image Url"
+                      value={image}
                       disabled
                     />
                   </div>
 
                   <div className="w-full md:w-1/2 px-4">
                     <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
-                      Your Name
+                      Provider email
                     </label>
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      name="userName"
-                      type="text"
-                      value={user?.displayName}
+                      name="provideremail"
+                      type="email"
+                      value={userEmail}
                       disabled
                     />
                   </div>
@@ -208,7 +218,7 @@ const SwapDetails = () => {
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       name="price"
                       type="number"
-                      placeholder="Price"
+                      value={price}
                       disabled
                     />
                   </div>
@@ -235,16 +245,23 @@ const SwapDetails = () => {
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       name="note"
                       rows="4"
-                      placeholder="special note here"
+                      placeholder="note about the booking"
                       required
                     ></textarea>
                   </div>
                   <div className="flex justify-center w-full px-4 mt-12 mb-12 md:mb-0">
                     <button
-                      className="bg-[#ACD27A] hover:bg-[#7CAD3A] text-white font-bold w-2/3 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                      className="bg-[#7CAD3A] hover:bg-[#ACD27A] text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline mr-8"
                       type="submit"
                     >
                       Book Swap
+                    </button>
+
+                    <button
+                      onClick={closeModal}
+                      className="bg-black hover:bg-red-600 text-white font-bold  py-2 px-6 rounded focus:outline-none focus:shadow-outline"
+                    >
+                      Cancel
                     </button>
                   </div>
                 </div>

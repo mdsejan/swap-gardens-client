@@ -38,7 +38,7 @@ const SwapCard = ({ swap }) => {
           <span className="text-sm mt-2">James Mitchell</span>
         </div>
         <div className="w-1/3">
-          <Link to={`/swap/${_id}`}>
+          <Link to={`/swap/${_id}`} swap={swap}>
             <button className="bg-[#557627] hover:bg-[#70993E] text-white text-md font-semibold py-1 px-4 rounded">
               Details
             </button>
