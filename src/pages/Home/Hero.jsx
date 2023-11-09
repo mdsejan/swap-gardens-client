@@ -1,14 +1,17 @@
 const Hero = () => {
   return (
     <section className="bg-gray-100 text-gray-800">
-      <div className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
-        <h1 className="text-4xl font-ibm-plex-sans font-bold sm:text-5xl">
-          Quisquam necessita vel
-          <span className="text-[#ACD27A]">laborum doloribus</span>delectus
+      <div className="mx-auto flex flex-col items-center px-2 py-16 text-center md:py-32 md:px-10 xl:max-w-screen-xl">
+        <h1 className="text-4xl px-2 font-ibm-plex-sans font-bold sm:text-5xl">
+          Discover a Verdant Exchange
+          <span className="text-[#ACD27A]"> at SwapGardens: </span>
+          Where Green Dreams Flourish!
         </h1>
-        <p className="px-8 mt-8 mb-12 text-lg  ">
-          Cupiditate minima voluptate temporibus quia? Architecto beatae esse ab
-          amet vero eaque explicabo!
+        <p className="lg:px-28 mt-8 mb-12 text-sm md:text-lg  ">
+          Discover green harmony at SwapGardens—your go-to for captivating plant
+          swaps. Unearth a world of botanical wonders, connect with fellow
+          enthusiasts, and create your lush oasis. Dive into the joy of
+          swapping, where every leaf tells a tale.
         </p>
         <div className="flex flex-wrap justify-center"></div>
       </div>
