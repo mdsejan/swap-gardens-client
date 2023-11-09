@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 
 const AddSwap = () => {
   const { user } = useContext(ThemeContext);
-  console.log(user.photoURL);
   const handleSubmit = (e) => {
     e.preventDefault();
 

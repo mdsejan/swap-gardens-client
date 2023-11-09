@@ -20,21 +20,27 @@ const UpdateMySwap = () => {
 
     const name = e.target.name.value;
     const image = e.target.image.value;
-    const userName = e.target.userName.value;
-    const userEmail = e.target.userEmail.value;
+    const providerName = e.target.userName.value;
+    const providerEmail = e.target.userEmail.value;
+    const providerAbout = e.target.providerabout.value;
     const swapLocation = e.target.swapLocation.value;
     const price = e.target.price.value;
     const description = e.target.description.value;
+    const providerImage = user.photoURL;
 
     const swapDetails = {
       name,
       image,
-      userName,
-      userEmail,
-      swapLocation,
       price,
+      swapLocation,
       description,
+      providerName,
+      providerEmail,
+      providerAbout,
+      providerImage,
     };
+
+    console.log(swapDetails);
 
     fetch(
       `https://swap-gardens-server.vercel.app/api/v1/user/update-swap/${id}`,
@@ -93,32 +99,6 @@ const UpdateMySwap = () => {
 
             <div className="w-full md:w-1/2 px-4">
               <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
-                Your Name
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                name="userName"
-                type="text"
-                value={user?.displayName}
-                disabled
-              />
-            </div>
-
-            <div className="w-full md:w-1/2 px-4">
-              <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
-                Your Email
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                name="userEmail"
-                type="email"
-                value={user?.email}
-                disabled
-              />
-            </div>
-
-            <div className="w-full md:w-1/2 px-4">
-              <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
                 Swap Location
               </label>
               <input
@@ -144,9 +124,10 @@ const UpdateMySwap = () => {
                 required
               />
             </div>
+
             <div className="w-full px-4">
               <label className="block text-left text-gray-600 font-medium text-md mb-2 mt-8">
-                Description
+                Swap Description
               </label>
 
               <textarea
@@ -159,6 +140,49 @@ const UpdateMySwap = () => {
                 required
               ></textarea>
             </div>
+
+            <div className="w-full md:w-1/2 px-4">
+              <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                Your Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                name="userName"
+                type="text"
+                value={user?.displayName}
+                disabled
+              />
+            </div>
+
+            <div className="w-full md:w-1/2 px-4">
+              <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                Your Email
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                name="userEmail"
+                type="email"
+                value={user?.email}
+                disabled
+              />
+            </div>
+
+            <div className="w-full px-4">
+              <label className="block text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                About You
+              </label>
+
+              <textarea
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                name="providerabout"
+                maxLength={200}
+                rows="4"
+                placeholder="Tell about yourself"
+                defaultValue={swapInfo[0]?.providerAbout}
+                required
+              ></textarea>
+            </div>
+
             <div className="flex justify-center w-full px-4 mt-12 mb-12 md:mb-0">
               <button
                 className="bg-[#ACD27A] hover:bg-[#7CAD3A] text-white font-bold w-2/3 py-2 px-4 rounded focus:outline-none focus:shadow-outline"

@@ -3,26 +3,30 @@ import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const SwapCard = ({ swap }) => {
-  const { _id, name } = swap || {};
+  const {
+    _id,
+    name,
+    image,
+    description,
+    price,
+    swapLocation,
+    providerImage,
+    providerName,
+  } = swap || {};
+
   return (
     <div className="flex flex-col justify-between w-full bg-[#F3F9EC] rounded  border pb-4">
       <div>
-        <img
-          src="https://i.pinimg.com/564x/ba/9b/e0/ba9be03a4ed0a9907f5dd790d1337f27.jpg"
-          alt="Swap"
-          className="w-full h-72 object-cover"
-        />
+        <img src={image} alt={name} className="w-full h-72 object-cover" />
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2"> {name} </div>
-          <p className="text-gray-700 text-sm">
-            {`The flower of the orchid plant is colorful, fragrant and can vary in sizes from microscopic plants. `}
-          </p>
+          <p className="text-gray-700 text-sm">{description}</p>
 
-          <h2 className="text-[#6c9935] text-xl font-bold mt-3">$35.00</h2>
+          <h2 className="text-[#6c9935] text-xl font-bold mt-3">${price}.00</h2>
           <div className="flex items-center mt-2">
             <FaLocationDot className="text-xl mr-2 text-[#557627]"></FaLocationDot>
             <p className="text-md font-semibold text-[#557627] ">
-              New York City, NY
+              {swapLocation}
             </p>
           </div>
         </div>
@@ -31,11 +35,11 @@ const SwapCard = ({ swap }) => {
       <div className="flex justify-between px-6 py-2">
         <div className="flex">
           <img
-            src="https://i.pinimg.com/564x/68/9e/3e/689e3e13e65cd091270d7cd6de61fed5.jpg"
-            alt="Provider"
+            src={providerImage}
+            alt={providerName}
             className="w-8 h-8 rounded-full mr-2 object-cover"
           />
-          <span className="text-sm mt-2">James Mitchell</span>
+          <span className="text-sm mt-2">{providerName}</span>
         </div>
         <div className="w-1/3">
           <Link to={`/swap/${_id}`} swap={swap}>

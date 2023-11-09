@@ -7,9 +7,12 @@ const MySwaps = () => {
   const { user } = useContext(ThemeContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/myswaps/?user=${user.email}`, {
-      credentials: "include",
-    })
+    fetch(
+      `https://swap-gardens-server.vercel.app/api/v1/myswaps/?user=${user.email}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => setMySwaps(data))
       .catch((error) => {

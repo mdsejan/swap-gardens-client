@@ -6,7 +6,7 @@ const PopularSwaps = () => {
   const [swaps, setSwaps] = useState([]);
 
   useEffect(() => {
-    fetch(`https://swap-gardens-server.vercel.app/api/v1/swaps/`)
+    fetch(`https://swap-gardens-server.vercel.app/api/v1/swaps`)
       .then((res) => res.json())
       .then((data) => setSwaps(data));
   }, []);
