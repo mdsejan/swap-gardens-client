@@ -9,8 +9,8 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="max-w-screen-2xl mx-auto w-full min-h-[50vh] ">
-        Loading...
+      <div className="max-w-screen-2xl mx-auto w-full min-h-[50vh] lg:min-h-screen flex justify-center items-center ">
+        <span className="loading loading-spinner w-12 h-12 "></span>
       </div>
     );
   }

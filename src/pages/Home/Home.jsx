@@ -6,7 +6,7 @@ const Home = () => {
     <>
       <Hero></Hero>
 
-      <div className="min-h-screen max-w-screen-2xl mx-auto px-4 py-12">
+      <div className="min-h-[50vh] max-w-screen-2xl mx-auto px-4 py-12">
         <PopularSwaps></PopularSwaps>
       </div>
     </>

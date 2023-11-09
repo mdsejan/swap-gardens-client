@@ -1,16 +1,27 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import SwapCard from "../AllSwaps/SwapCard";
+import { useParams } from "react-router-dom";
+// import toast from "react-hot-toast";
+import { ThemeContext } from "../../providers/ThemeProvider";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const SwapDetails = () => {
   const [showModal, setShowModal] = useState(false);
   const [swaps, setSwaps] = useState([]);
+  const { user } = useContext(ThemeContext);
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const { id } = useParams();
 
   useEffect(() => {
     fetch(`https://swap-gardens-server.vercel.app/api/v1/swaps/`)
       .then((res) => res.json())
       .then((data) => setSwaps(data));
   }, []);
+
+  const filterSwaps = swaps?.filter((swap) => swap?._id !== id);
 
   const openModal = () => {
     setShowModal(true);
@@ -19,6 +30,54 @@ const SwapDetails = () => {
   const closeModal = () => {
     setShowModal(false);
   };
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  const handleBooking = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const image = e.target.image.value;
+    const userName = e.target.userName.value;
+    const userEmail = e.target.userEmail.value;
+    const price = e.target.price.value;
+    const bookingDate = selectedDate;
+    const note = e.target.note.value;
+    const bookingStatus = "pending";
+
+    const swapDetails = {
+      name,
+      image,
+      userName,
+      userEmail,
+      price,
+      bookingDate,
+      note,
+      bookingStatus,
+    };
+
+    console.log(swapDetails);
+
+    closeModal();
+
+    // fetch("https://swap-gardens-server.vercel.app/ap/v1/user/add-swap", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(swapDetails),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.insertedId) {
+    //       toast.success("Swap Booked Successfully");
+    //     }
+    //     e.target.reset();
+    //   });
+  };
+
   return (
     <div className="max-w-screen-2xl mx-auto px-4 pt-12 pb-16">
       <div className="max-w-screen-lg mx-auto flex flex-col lg:flex-row mt-8">
@@ -86,21 +145,110 @@ const SwapDetails = () => {
         {/* Modal */}
         {showModal && (
           <div className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-8 rounded-md w-full max-w-3xl">
-              <h2 className="text-2xl font-bold mb-4">Book Service</h2>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">
-                  Service Name
-                </label>
-                <p className="text-gray-800">Gardening Delight</p>
-              </div>
-              {/* Other input fields go here */}
-              <button
-                onClick={closeModal}
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Purchase this Service
-              </button>
+            <div className="bg-white p-4 rounded-md w-full max-w-3xl">
+              <form onSubmit={handleBooking}>
+                <div className="flex flex-wrap pb-3">
+                  <div className="w-full md:w-1/2 px-4">
+                    <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                      Swap Name
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+                      name="name"
+                      type="text"
+                      placeholder="Name"
+                      disabled
+                    />
+                  </div>
+
+                  <div className="w-full md:w-1/2 px-4">
+                    <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                      Image Url
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      name="image"
+                      type="text"
+                      placeholder="Image Url"
+                      disabled
+                    />
+                  </div>
+
+                  <div className="w-full md:w-1/2 px-4">
+                    <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                      Your Name
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      name="userName"
+                      type="text"
+                      value={user?.displayName}
+                      disabled
+                    />
+                  </div>
+
+                  <div className="w-full md:w-1/2 px-4">
+                    <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                      Your Email
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      name="userEmail"
+                      type="email"
+                      value={user?.email}
+                      disabled
+                    />
+                  </div>
+
+                  <div className="w-full md:w-1/2 px-4">
+                    <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                      Price
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      name="price"
+                      type="number"
+                      placeholder="Price"
+                      disabled
+                    />
+                  </div>
+
+                  <div className="w-full md:w-1/2 px-4">
+                    <label className="block  text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                      Booking Date
+                    </label>
+                    <DatePicker
+                      selected={selectedDate}
+                      onChange={handleDateChange}
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      placeholderText="Select a date"
+                      required
+                    />
+                  </div>
+
+                  <div className="w-full px-4">
+                    <label className="block text-left text-gray-600 font-medium text-md mb-2 mt-8">
+                      Note about booking
+                    </label>
+
+                    <textarea
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      name="note"
+                      rows="4"
+                      placeholder="special note here"
+                      required
+                    ></textarea>
+                  </div>
+                  <div className="flex justify-center w-full px-4 mt-12 mb-12 md:mb-0">
+                    <button
+                      className="bg-[#ACD27A] hover:bg-[#7CAD3A] text-white font-bold w-2/3 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                      type="submit"
+                    >
+                      Book Swap
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         )}
@@ -112,7 +260,7 @@ const SwapDetails = () => {
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-12">
-          {swaps?.slice(0, 4).map((swap) => (
+          {filterSwaps?.map((swap) => (
             <SwapCard key={swap._id} swap={swap}></SwapCard>
           ))}
         </div>
