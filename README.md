@@ -63,6 +63,6 @@ You can access the live SwapGardens site [here](https://swapgardens.netlify.app/
 
 ## Server-side Repository
 
-The server-side repository for SwapGardens can be found [here](https://github.com/Porgramming-Hero-web-course/b8a11-server-side-mdsejan).
+The server-side repository for SwapGardens can be found [here](https://github.com/mdsejan/swap-gardens-server).
 
 Happy plant swapping with SwapGardens!
